@@ -20,14 +20,13 @@ end
 
 def part1
     lines = File.open("input").readlines
-    group_answers = lines.split{|line| 
+    group_sums = lines.split{|line| 
         line == "\n"
     }.collect{|answers| 
         answers.flatten().map(&:chomp)
     }.collect{|answers| 
         answers.join(" ").gsub(/\s+/,'')
-    }
-    group_sums = group_answers.collect{|group| 
+    }.collect{|group| 
         group.split("").uniq.length
     }
     puts "Part 1 Total:#{group_sums.sum}"
